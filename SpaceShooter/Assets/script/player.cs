@@ -3,11 +3,12 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : Damageble 
 {   
    [SerializeField] float speed = 1;
    [SerializeField] private GameObject bullet;
    [SerializeField] float pewpewRate = 1;
+
    Vector3 position;
     void Start()
     {
@@ -17,7 +18,7 @@ public class player : MonoBehaviour
     {
         Movement();
     }
- void FixedUpdate()
+    void FixedUpdate()
     {
         Vector3 positionInBetween = Vector3.Lerp(transform.position,position,speed*Time.fixedDeltaTime);
         transform.position = positionInBetween;
@@ -28,7 +29,7 @@ public class player : MonoBehaviour
         Instantiate(bullet, transform.position , Quaternion.identity);
 
     }
-       void Movement()
+    void Movement()
     {
            Camera cam = Camera.main;
 
@@ -66,4 +67,6 @@ public class player : MonoBehaviour
             position = transform.position;
         }
     }
+    
+
 }

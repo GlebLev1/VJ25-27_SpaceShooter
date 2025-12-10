@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-   [SerializeField] float speed;
+    [SerializeField] private int collisionDamage = 1;
+    [SerializeField] private float speed;
+    [SerializeField] private Rigidbody2D rb;
     void Start()
     {
-        
+        rb.linearVelocity = Vector2.up * speed;
     }
-
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        
+    Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+    if (enemy != null)
+    {
+    enemy.TakeDamage(collisionDamage);
     }
+     Destroy(gameObject);
+    }
+    
 }

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 93e5a3a7fab64c644994d544c0795e6d
+guid: 141604dff70f969429f87f9e6405f2aa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1162233375206758482
-    second: Nairan - Scout - Base_0
+      213: 1547297335961558348
+    second: 1_24_0
+  - first:
+      213: 506161467852038938
+    second: 1_24_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,12 +40,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nairan - Scout - Base_0
+      name: 1_24_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 18
-        width: 26
-        height: 24
+        x: 46
+        y: 39
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea7a2bc27eaeedfe0800000000000000
-      internalID: -1162233375206758482
+      spriteID: c4d95e7aaba197510800000000000000
+      internalID: 1547297335961558348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_24_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 26
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13af4a5c2f360700800000000000000
+      internalID: 506161467852038938
       vertices: []
       indices: 
       edges: []
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Nairan - Scout - Base_0: -1162233375206758482
+      1_24_0: 1547297335961558348
+      1_24_1: 506161467852038938
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
