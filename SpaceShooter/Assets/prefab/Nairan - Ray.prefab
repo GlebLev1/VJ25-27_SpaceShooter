@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c06648918950bad4e8bf29cd56646f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::bullet
-  collisionDamage: 1
-  speed: 1
+  collisionDamage: 3
+  speed: 5
   rb: {fileID: 6007028275358522161}
 --- !u!50 &6007028275358522161
 Rigidbody2D:

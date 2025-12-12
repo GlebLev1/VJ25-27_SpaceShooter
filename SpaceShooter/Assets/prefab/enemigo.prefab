@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3584915371297445154}
   - component: {fileID: 7515937053906795193}
   - component: {fileID: 2968234220783230601}
+  - component: {fileID: -185085087190672533}
   m_Layer: 0
   m_Name: enemigo
   m_TagString: Untagged
@@ -132,11 +133,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ebac666a38cfe242b58efd7749135f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::enemy
-  health: 3
-  explosion: {fileID: 2062297370127171236, guid: de985c4e3534d0547a70aa5af6f2415c, type: 3}
+  explosion: {fileID: 8397328849570356335, guid: 3e21e2fe24137a64e8090e26b9180b50, type: 3}
+  health: 1
   rb: {fileID: 3584915371297445154}
   speed: 1
-  collisionDamage: 1
+  collisionDamage: 5
 --- !u!61 &2968234220783230601
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183,3 +184,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.24, y: 0.22000001}
   m_EdgeRadius: 0
+--- !u!114 &-185085087190672533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3577784769577249054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714dbac0362e8fe4eb24edfe8c174616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScoreObject
+  score: 1

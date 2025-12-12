@@ -3,16 +3,22 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-   [SerializeField] private GameObject enemy;   
-   void Start()
+    [SerializeField] private GameObject enemy;
+
+    void Start()
     {
-      StartCoroutine(SpawnEnemy());
+        StartCoroutine(SpawnEnemy());
     }
 
-   
     IEnumerator SpawnEnemy()
     {
-       Instantiate(enemy,transform.position, Quaternion.identity);
-       yield return new WaitForSeconds(2f);  
+        while (true)
+        {
+            float randomX = Random.Range(-7f, 10f);
+
+            Vector3 spawnPos = new Vector3(randomX, transform.position.y, transform.position.z);
+            Instantiate(enemy, spawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+        }
     }
 }

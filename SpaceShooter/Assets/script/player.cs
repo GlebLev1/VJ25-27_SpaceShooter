@@ -8,6 +8,7 @@ public class Player : Damageble
    [SerializeField] float speed = 1;
    [SerializeField] private GameObject bullet;
    [SerializeField] float pewpewRate = 1;
+   
 
    Vector3 position;
     void Start()
@@ -67,6 +68,7 @@ public class Player : Damageble
             position = transform.position;
         }
     }
-    
+   
+
 
 }
