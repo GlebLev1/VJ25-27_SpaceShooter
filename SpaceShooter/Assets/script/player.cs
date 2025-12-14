@@ -1,40 +1,44 @@
-using NUnit.Framework;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : Damageble 
-{   
-   [SerializeField] float speed = 1;
-   [SerializeField] private GameObject bullet;
-   [SerializeField] float pewpewRate = 1;
-   
+public class Player : Damageble
+{
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private float pewpewRate = 1f;
 
-   Vector3 position;
+    [SerializeField] private int maxLives = 3;
+    private int currentLives;
+
+    private Vector3 position;
+
     void Start()
     {
-       InvokeRepeating("PewPew",0 , pewpewRate); 
-    }    
+        currentLives = maxLives;
+
+        InvokeRepeating(nameof(PewPew), 0f, pewpewRate);
+    }
+
     void Update()
     {
         Movement();
     }
+
     void FixedUpdate()
     {
-        Vector3 positionInBetween = Vector3.Lerp(transform.position,position,speed*Time.fixedDeltaTime);
+        Vector3 positionInBetween =
+            Vector3.Lerp(transform.position, position, speed * Time.fixedDeltaTime);
         transform.position = positionInBetween;
-        
     }
+
     void PewPew()
     {
-        Instantiate(bullet, transform.position , Quaternion.identity);
-
+        Instantiate(bullet, transform.position, Quaternion.identity);
     }
+
     void Movement()
     {
-           Camera cam = Camera.main;
+        Camera cam = Camera.main;
 
-       
         if (Input.touchSupported && Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -42,15 +46,12 @@ public class Player : Damageble
             Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(
                 touch.position.x,
                 touch.position.y,
-                cam.nearClipPlane  
+                cam.nearClipPlane
             ));
 
             worldPos.z = transform.position.z;
-
             position = worldPos;
         }
-
-       
         else if (Input.GetMouseButton(0))
         {
             Vector3 mousePos = cam.ScreenToWorldPoint(new Vector3(
@@ -60,7 +61,6 @@ public class Player : Damageble
             ));
 
             mousePos.z = transform.position.z;
-
             position = mousePos;
         }
         else
@@ -68,7 +68,27 @@ public class Player : Damageble
             position = transform.position;
         }
     }
-   
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage); 
 
+        if (isDead)
+        {
+            LoseLife();
+        }
+    }
 
+    private void LoseLife()
+    {
+        currentLives--;
+
+        if (currentLives > 0)
+        {
+            transform.position = Vector3.zero;
+        }
+        else
+        {
+            Die();  
+        }
+    }
 }

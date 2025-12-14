@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private GameObject telaInicial;
+
     void Start()
     {
-        
+        Time.timeScale = 0f;
+
+        if (telaInicial != null)
+        {
+            telaInicial.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        
+        Time.timeScale = 1f;
+        if (telaInicial != null)
+        {
+            telaInicial.SetActive(false);
+        }
     }
 }

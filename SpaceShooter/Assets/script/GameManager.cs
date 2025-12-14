@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {   
         ResumeTime();
-
-        //Application.LoadLevel(Application.loadedLevel);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
