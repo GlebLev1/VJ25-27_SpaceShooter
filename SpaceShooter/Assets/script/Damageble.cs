@@ -2,30 +2,32 @@ using UnityEngine;
 
 public class Damageble : MonoBehaviour
 {
-   [SerializeField] private GameObject explosion; 
-   [SerializeField] int health = 3;
-   [SerializeField] GameManager gameManager;
-    public void TakeDamage(int damage)
+    [SerializeField] private GameObject explosion;
+    [SerializeField] protected int health = 3;      
+    [SerializeField] protected GameManager gameManager;
+
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
-        print(gameObject.name + damage + "dano");
+        print(gameObject.name + " levou " + damage + " de dano");
 
-        if(health<=0)
+        if (health <= 0)
         {
             Die();
         }
     }
-
-    public void Die()
+    public virtual void Die()
     {
-            Destroy(gameObject);
-
-            if(explosion!=null)
-            {
-                GameObject explosionInstance = Instantiate(explosion,transform.position,Quaternion.identity);
-                Destroy(explosionInstance, 1);
-                gameManager.GameOver();
-
-            }
+        if (explosion != null)
+        {
+            GameObject explosionInstance =
+                Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(explosionInstance, 1f);
         }
+        if (gameManager != null)
+        {
+            gameManager.GameOver();
+        }
+        Destroy(gameObject);
+    }
 }
