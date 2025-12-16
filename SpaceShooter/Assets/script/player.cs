@@ -5,7 +5,7 @@ public class Player : Damageble
 {
     [Header("Movimento e tiro")]
     [SerializeField] private float speed = 1f;
-    [SerializeField] private GameObject bullet;
+    [SerializeField] private bullet bullet;
     [SerializeField] private float pewpewRate = 1f;   // intervalo base
 
     [Header("Dano do tiro")]
@@ -66,7 +66,8 @@ public class Player : Damageble
     {
         if (bullet == null) return;
 
-        GameObject b = Instantiate(bullet, transform.position, Quaternion.identity);
+        bullet b = Instantiate(bullet, transform.position, Quaternion.identity);
+        b.SetDamage(currentDamage);
     }
 
     void Movement()
